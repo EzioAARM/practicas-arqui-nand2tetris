@@ -1,0 +1,22 @@
+CHIP Adder16One {
+    IN a[16], b;
+    OUT sum[16], carry;
+
+    PARTS:
+    HalfAdder(a=a[0], b=b, sum=sum[0], carry=c1);
+    FullAdder(a=a[1], b=false, c=c1, sum=sum[1], carry=c2);
+    FullAdder(a=a[2], b=false, c=c2, sum=sum[2], carry=c3);
+    FullAdder(a=a[3], b=false, c=c3, sum=sum[3], carry=c4);
+    FullAdder(a=a[4], b=false, c=c4, sum=sum[4], carry=c5);
+    FullAdder(a=a[5], b=false, c=c5, sum=sum[5], carry=c6);
+    FullAdder(a=a[6], b=false, c=c6, sum=sum[6], carry=c7);
+    FullAdder(a=a[7], b=false, c=c7, sum=sum[7], carry=c8);
+    FullAdder(a=a[8], b=false, c=c8, sum=sum[8], carry=c9);
+    FullAdder(a=a[9], b=false, c=c9, sum=sum[9], carry=c10);
+    FullAdder(a=a[10], b=false, c=c10, sum=sum[10], carry=c11);
+    FullAdder(a=a[11], b=false, c=c11, sum=sum[11], carry=c12);
+    FullAdder(a=a[12], b=false, c=c12, sum=sum[12], carry=c13);
+    FullAdder(a=a[13], b=false, c=c13, sum=sum[13], carry=c14);
+    FullAdder(a=a[14], b=false, c=c14, sum=sum[14], carry=c15);
+    FullAdder(a=a[15], b=false, c=c15, sum=sum[15], carry=carry);
+}

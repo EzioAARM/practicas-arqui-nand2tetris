@@ -1,0 +1,52 @@
+CHIP NotFirst {
+    IN a[16];
+    OUT out[16];
+
+    PARTS:
+    Not(in=a[0], out=out[0]);
+    
+    Not(in=a[1], out=out1);
+    Not(in=out1, out=out[1]);
+
+    Not(in=a[2], out=out2);
+    Not(in=out2, out=out[2]);
+
+    Not(in=a[3], out=out3);
+    Not(in=out3, out=out[3]);
+
+    Not(in=a[4], out=out4);
+    Not(in=out4, out=out[4]);
+
+    Not(in=a[5], out=out5);
+    Not(in=out5, out=out[5]);
+
+    Not(in=a[6], out=out6);
+    Not(in=out6, out=out[6]);
+
+    Not(in=a[7], out=out7);
+    Not(in=out7, out=out[7]);
+
+    Not(in=a[8], out=out8);
+    Not(in=out8, out=out[8]);
+
+    Not(in=a[9], out=out9);
+    Not(in=out9, out=out[9]);
+
+    Not(in=a[10], out=out10);
+    Not(in=out10, out=out[10]);
+
+    Not(in=a[11], out=out11);
+    Not(in=out11, out=out[11]);
+
+    Not(in=a[12], out=out12);
+    Not(in=out12, out=out[12]);
+
+    Not(in=a[13], out=out13);
+    Not(in=out13, out=out[13]);
+
+    Not(in=a[14], out=out14);
+    Not(in=out14, out=out[14]);
+
+    Not(in=a[15], out=out15);
+    Not(in=out15, out=out[15]);
+}

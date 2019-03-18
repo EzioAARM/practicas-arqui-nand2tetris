@@ -1,0 +1,169 @@
+CHIP ALU {
+    IN zx, nx, zy, ny, f, no, p, x[16], y[16];
+    OUT zr, ng, out[16];
+
+    PARTS:
+    Not(in=zx, out=notZx);
+    Not(in=nx, out=notNx);
+    Not(in=zy, out=notZy);
+    Not(in=ny, out=notNy);
+    Not(in=f, out=notF);
+    Not(in=no, out=notNo);
+
+
+    /*And4(a=zx, b=notNx, c=zy, d=notNy, e=f, f=notNo, out=selLinea1);
+    And(a=selLinea1, b=false, out=linea1Part11);
+
+    Xor16(a=linea1Part11, out=paridadLinea1);
+    And(a=paridadLinea1, b=pLinea1, out=ejecutarParidadLinea1);
+    Not(in=ejecutarParidadLinea1, out=notEPL1);
+    And(a=notEPL1, b=linea1Part11, out=linea1Part1);
+    Expandir(a=linea1Part1, out=outLinea1);
+
+    Not(in=true, out=ngLinea1Out);
+    And(a=ngLinea1Out, b=selLinea1, out=ngLinea1);
+    Not(in=true, out=zrLinea1Out);
+    And(a=zrLinea1Out, b=selLinea1, out=zrLinea1);
+
+    And4(a=zx, b=nx, c=zy, d=ny, e=f, f=no, out=selLinea2);
+    And(a=selLinea2, b=true, out=linea2Part1);
+    Expandir(a=linea2Part1, out=outLinea2);
+    Not(in=true, out=ngLinea2Out);
+    And(a=selLinea2, b=ngLinea2Out, out=ngLinea2);
+    Not(in=true, out=zrLinea2Out);
+    And(a=selLinea2, b=zrLinea2Out, out=zrLinea2);
+
+    And4(a=zx, b=nx, c=zy, d=notNy, e=f, f=notNo, out=selLinea3);
+    And(a=selLinea3, b=true, out=linea3Part1);
+    Expandir(a=linea3Part1, out=outLinea3);
+    Not(in=linea3Part1,out=notNg);
+    Not(in=notNg, out=ngLinea3Out);
+    And(a=selLinea3, b=ngLinea3Out, out=ngLinea3);
+    Not(in=true,out=zrLinea3Out);
+    And(a=selLinea3, b=zrLinea3Out, out=zrLinea3);
+
+    And4(a=notZx, b=notNx, c=zy, d=ny, e=notF, f=notNo, out=selLinea4);
+    Expandir(a=selLinea4, out=selLinea4Ext);
+    And16(a=x, b=selLinea4Ext, out=outLinea4);
+    Not(in=true, out=ngLinea4Out);
+    And(a=selLinea4, b=ngLinea4Out, out=ngLinea4);
+    Not(in=true, out=zrLinea4Out);
+    And(a=selLinea4, b=zrLinea4Out, out=zrLinea4);
+
+    And4(a=zx, b=nx, c=notZy, d=notNy, e=notF, f=notNo, out=selLinea5);
+    Expandir(a=selLinea5, out=selLinea5Ext);
+    And16(a=y, b=selLinea5Ext, out=outLinea5);
+    Not(in=true, out=ngLinea5Out);
+    And(a=selLinea5, b=ngLinea5Out, out=ngLinea5);
+    Not(in=true, out=zrLinea5Out);
+    And(a=selLinea5, b=zrLinea5Out, out=zrLinea5);
+
+    And4(a=notZx, b=notNx, c=zy, d=ny, e=notF, f=no, out=selLinea6);
+    Expandir(a=selLinea6, out=selLinea6Ext);
+    Not16(a=x, out=notX);
+    And16(a=notX, b=selLinea6Ext, out=outLinea6);
+    Not(in=true, out=ngLinea6Out);
+    And(a=selLinea6, b=ngLinea6Out, out=ngLinea6);
+    Not(in=true, out=zrLinea6Out);
+    And(a=selLinea6, b=zrLinea6Out, out=zrLinea6);
+
+    And4(a=zx, b=nx, c=notZy, d=notNy, e=notF, f=no, out=selLinea7);
+    Expandir(a=selLinea7, out=selLinea7Ext);
+    Not16(a=y, out=notY);
+    And16(a=notY, b=selLinea7Ext, out=outLinea7);
+    Not(in=true, out=ngLinea7Out);
+    And(a=selLinea7, b=ngLinea7Out, out=ngLinea7);
+    Not(in=true, out=zrLinea7Out);
+    And(a=selLinea7, b=zrLinea7Out, out=zrLinea7);
+
+    And4(a=notZx, b=notNx, c=zy, d=ny, e=f, f=no, out=selLinea8);
+    Expandir(a=selLinea8, out=selLinea8Ext);
+    And16(a=notX, b=selLinea8Ext, out=outLinea8);
+    Not(in=false, out=ngLinea8Out);
+    And(a=selLinea8, b=ngLinea8Out, out=ngLinea8);
+    Not(in=true, out=zrLinea8Out);
+    And(a=selLinea8, b=zrLinea8Out, out=zrLinea8);
+
+    And4(a=zx, b=nx, c=notZy, d=notNy,e=f, f=no, out=selLinea9);
+    Expandir(a=selLinea9, out=selLinea9Ext);
+    And16(a=notY, b=selLinea9Ext, out=outLinea9);
+    Not(in=false, out=ngLinea9Out);
+    And(a=selLinea9, b=ngLinea9Out, out=ngLinea9);
+    Not(in=true, out=zrLinea9Out);
+    And(a=selLinea9, b=zrLinea9Out, out=zrLinea9);*/
+
+    And4(a=notZx, b=nx, c=zy, d=ny, e=f, f=no, out=selLinea10);
+    Adder16One(a=x, b=true, sum=linea10Part1, carry=zrLinea10Out);
+    Expandir(a=selLinea10, out=selLinea10Exp);
+    And16(a=linea10Part1, b=selLinea10Exp, out=outLinea10Part11);
+
+    Xor16(a=outLinea10Part11, out=paridadLinea10);
+    //Not(in=paridadLinea10, out=notPL10);
+    And(a=paridadLinea10, b=p, out=ejecutarParidadLinea10);
+    Not(in=ejecutarParidadLinea10, out=notEPL10);
+    Expandir(a=notEPL10, out=notEPL10Exp);
+    And16(a=notEPL10Exp, b=outLinea10Part11, out=out);
+
+    Not(in=true, out=ngLinea10Out);
+    And(a=selLinea10, b=ngLinea10Out, out=ng);
+    And(a=selLinea10, b=zrLinea10Out, out=zr);
+
+    /*And4(a=zx, b=nx, c=notZy, d=ny, e=f, f=no, out=selLinea11);
+    Adder16One(a=y, b=true, sum=linea11Part1, carry=zrLinea11Out);
+    Expandir(a=selLinea11, out=selLinea11Exp);
+    And16(a=linea11Part1, b=selLinea11Exp, out=outLinea11);
+    Not(in=true, out=ngLinea11Out);
+    And(a=selLinea11, b=ngLinea11Out, out=ngLinea11);
+    And(a=selLinea11, b=zrLinea11Out, out=zrLinea11);
+
+    And4(a=notZx, b=notNx, c=zy, d=ny, e=f, f=notNo, out=selLinea12);
+    Expandir(a=true, out=extendedZeroLinea12);
+    NotFirst(a=extendedZeroLinea12, out=extendedZeroLinea12First);
+    Adder16(a=x, b=extendedZeroLinea12First, sum=linea12Part1, carry=ngLinea12Out);
+    Expandir(a=selLinea12, out=selLinea12Exp);
+    And16(a=linea12Part1, b=selLinea12Exp, out=outLinea12);
+    Not(in=true, out=zrLinea12Out);
+    And(a=selLinea12, b=ngLinea12Out, out=ngLinea12);
+    And(a=selLinea12, b=zrLinea12Out, out=zrLinea12);
+
+    Or16(a=outLinea1, b=outLinea2, out=outPart1);
+    Or16(a=outLinea3, b=outLinea4, out=outPart2);
+    Or16(a=outLinea5, b=outLinea6, out=outPart3);
+    Or16(a=outLinea7, b=outLinea8, out=outPart4);
+    Or16(a=outLinea9, b=outLinea10, out=outPart5);
+    Or16(a=outLinea11, b=outLinea12, out=outPart6);
+
+    Or16(a=outPart1, b=outPart2, out=outFinal1);
+    Or16(a=outPart3, b=outPart4, out=outFinal2);
+    Or16(a=outPart5, b=outPart6, out=outFinal3);
+    Or16(a=outFinal1, b=outFinal2, out=outFinal4);
+    Or16(a=outFinal3, b=outFinal4, out=out);
+
+
+    Or(a=ngLinea1, b=ngLinea2, out=ngPart1);
+    Or(a=ngLinea3, b=ngLinea4, out=ngPart2);
+    Or(a=ngLinea5, b=ngLinea6, out=ngPart3);
+    Or(a=ngLinea7, b=ngLinea8, out=ngPart4);
+    Or(a=ngLinea9, b=ngLinea10, out=ngPart5);
+    Or(a=ngLinea11, b=ngLinea12, out=ngPart6);
+
+    Or(a=ngPart1, b=ngPart2, out=ngFinal1);
+    Or(a=ngPart3, b=ngPart4, out=ngFinal2);
+    Or(a=ngPart5, b=ngPart6, out=ngFinal3);
+    Or(a=ngFinal1, b=ngFinal2, out=ngFinal4);
+    Or(a=ngFinal3, b=ngFinal4, out=ng);
+
+
+    Or(a=zrLinea1, b=zrLinea2, out=zrPart1);
+    Or(a=zrLinea3, b=zrLinea4, out=zrPart2);
+    Or(a=zrLinea5, b=zrLinea6, out=zrPart3);
+    Or(a=zrLinea7, b=zrLinea8, out=zrPart4);
+    Or(a=zrLinea9, b=zrLinea10, out=zrPart5);
+    Or(a=zrLinea11, b=zrLinea12, out=zrPart6);
+
+    Or(a=zrPart1, b=zrPart2, out=zrFinal1);
+    Or(a=zrPart3, b=zrPart4, out=zrFinal2);
+    Or(a=zrPart5, b=zrPart6, out=zrFinal3);
+    Or(a=zrFinal1, b=zrFinal2, out=zrFinal4);
+    Or(a=zrFinal3, b=zrFinal4, out=zr);*/
+}

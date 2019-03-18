@@ -1,0 +1,52 @@
+CHIP LS48 {
+    IN D, C, B, A;
+    OUT a;
+
+    PARTS:
+    Not(in=B, out=notB);
+    Not(in=A, out=notA);
+    Not(in=C, out=notC);
+    Not(in=D, out=notD);
+
+    /*Xor(a=A, b=C, out=xorAC);
+    Nand(a=notB, b=notD, out=nandNotBD);
+    Nand(a=nandNotBD, b=xorAC, out=a);*/
+
+    And(a=B, b=D, out=andBD);
+    And(a=notB, b=notD, out=andNotBNotD);
+    Or(a=andBD, b=andNotBNotD, out=aPart1);
+    Or(a=A, b=C, out=aPart2);
+    Or(a=aPart1, b=aPart2, out=a);
+
+    /*Xor(a=A, b=B, out=xorAB);
+    Nand(a=C, b=xorAB, out=b);
+
+    Nand(a=notA, b=B, out=nandNotAB);
+    Nand(a=notC, b=notD, out=nandNotCNotD);
+    Nand(a=nandNotAB, b=nandNotCNotD, out=c);
+
+    Nand(a=B, b=notC, out=nandBNotC);
+    Nand(a=A, b=notB, out=nandANotB);
+    Nand(a=nandANotB, b=C, out=nandANotBC);
+    Nand(a=notA, b=notC, out=nandNotANotC);
+
+    Nand(a=nandBNotC, b=nandANotBC, out=dPart1);
+    Nand(a=nandANotBC, b=nandNotAB, out=dPart2);
+    Nand(a=dPart1, b=dPart2, out=d);
+
+    Nand(a=nandNotANotC, b=nandNotAB, out=e);
+
+    Nand(a=notA, b=notB, out=nandNotANotB);
+    Nand(a=notB, b=C, out=nandNotBC);
+    Nand(a=notA, b=C, out=nandNotAC);
+
+    Nand(a=nandNotANotB, b=nandNotBC, out=fPart1);
+    Nand(a=nandNotAC, b=notD, out=fPart2);
+    Nand(a=fPart1, b=fPart2, out=f);
+
+    Xor(a=notB, b=C, out=xorNotBC);
+    Nand(a=notA, b=B, out=notAB);
+
+    Nand(a=xorNotBC, b=notAB, out=gPart1);
+    Nand(a=gPart1, b=notD, out=g);*/
+}

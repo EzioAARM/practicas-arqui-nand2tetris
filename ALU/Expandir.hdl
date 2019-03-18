@@ -1,0 +1,53 @@
+CHIP Expandir {
+    IN a;
+    OUT out[16];
+
+    PARTS:
+    Not(in=a, out=a0);
+    Not(in=a0, out=out[0]);
+
+    Not(in=a, out=a1);
+    Not(in=a1, out=out[1]);
+
+    Not(in=a, out=a2);
+    Not(in=a2, out=out[2]);
+
+    Not(in=a, out=a3);
+    Not(in=a3, out=out[3]);
+
+    Not(in=a, out=a4);
+    Not(in=a4, out=out[4]);
+
+    Not(in=a, out=a5);
+    Not(in=a5, out=out[5]);
+
+    Not(in=a, out=a6);
+    Not(in=a6, out=out[6]);
+
+    Not(in=a, out=a7);
+    Not(in=a7, out=out[7]);
+
+    Not(in=a, out=a8);
+    Not(in=a8, out=out[8]);
+
+    Not(in=a, out=a9);
+    Not(in=a9, out=out[9]);
+
+    Not(in=a, out=a10);
+    Not(in=a10, out=out[10]);
+
+    Not(in=a, out=a11);
+    Not(in=a11, out=out[11]);
+
+    Not(in=a, out=a12);
+    Not(in=a12, out=out[12]);
+
+    Not(in=a, out=a13);
+    Not(in=a13, out=out[13]);
+
+    Not(in=a, out=a14);
+    Not(in=a14, out=out[14]);
+
+    Not(in=a, out=a15);
+    Not(in=a15, out=out[15]);
+}

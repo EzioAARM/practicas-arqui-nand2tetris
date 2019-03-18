@@ -1,0 +1,10 @@
+CHIP xorNand {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Nand (a=a, b=b, out=nandab);
+    Nand (a=a, b=nandab, out=nandab2);
+    Nand (a=b, b=nandab, out=nandba);
+    Nand (a=nandab2, b=nandba, out=out);
+}

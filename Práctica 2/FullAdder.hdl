@@ -1,0 +1,21 @@
+CHIP FullAdder {
+    IN a, b, c;
+    OUT sum, carry;
+    
+    PARTS:
+    Not (in=a, out=nota);
+    Not (in=b, out=notb);
+    And (a=a, b=notb, out=aAndNotb);
+    And (a=nota, b=b, out=notaAndb);
+    Or (a=aAndNotb, b=notaAndb, out=sum1);
+    And (a=a, b=b, out=carry1);
+
+    Not (in=sum1, out=nota1);
+    Not (in=c, out=notb1);
+    And (a=sum1, b=notb1, out=aAndNotb1);
+    And (a=nota1, b=c, out=notaAndb1);
+    Or (a=aAndNotb1, b=notaAndb1, out=sum);
+    And (a=sum1, b=c, out=carry2);
+
+    Or (a=carry1, b=carry2, out=carry);
+}
